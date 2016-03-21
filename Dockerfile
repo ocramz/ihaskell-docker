@@ -19,6 +19,11 @@ RUN apt-get install -y sudo wget curl libtool-bin
 RUN sudo apt-get install -yq git pkg-config libtool automake libncurses5-dev python-dev
 
 
+# # # 
+
+RUN cabal update
+
+
 # # # ZeroMQ 
 
 RUN curl -L https://github.com/zeromq/zeromq4-x/archive/v4.0.3.tar.gz > v4.0.3.tar.gz && \
