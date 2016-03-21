@@ -2,6 +2,15 @@ FROM haskell:7.10
 
 MAINTAINER ocramz
 
+
+# run in the browser
+# sudo docker run -p 8778:8778 IHaskell:dev
+#
+# run this with a terminal
+# sudo docker run -rm -i -t IHaskell:dev console
+
+RUN apt-get install -y sudo wget curl
+
 RUN sudo apt-get update
 RUN sudo apt-get install -yq git pkg-config libtool automake libncurses5-dev python-dev
 
