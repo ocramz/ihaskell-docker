@@ -13,7 +13,7 @@ MAINTAINER ocramz
 
 RUN apt-get update
 
-RUN apt-get install -y sudo wget curl
+RUN apt-get install -y sudo wget curl libtool-bin
 
 RUN sudo apt-get install -yq git pkg-config libtool automake libncurses5-dev python-dev
 
