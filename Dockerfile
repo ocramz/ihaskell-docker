@@ -9,9 +9,12 @@ MAINTAINER ocramz
 # run this with a terminal
 # sudo docker run -rm -i -t IHaskell:dev console
 
+
+
+RUN apt-get update
+
 RUN apt-get install -y sudo wget curl
 
-RUN sudo apt-get update
 RUN sudo apt-get install -yq git pkg-config libtool automake libncurses5-dev python-dev
 
 RUN curl -L https://github.com/zeromq/zeromq4-x/archive/v4.0.3.tar.gz > v4.0.3.tar.gz && \
