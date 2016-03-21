@@ -9,6 +9,7 @@ MAINTAINER ocramz
 # run this with a terminal
 # sudo docker run -rm -i -t IHaskell:dev console
 
+ENV PATH /home/haskell/.cabal/bin:$PATH
 
 
 RUN apt-get update
@@ -16,6 +17,9 @@ RUN apt-get update
 RUN apt-get install -y sudo wget curl libtool-bin
 
 RUN sudo apt-get install -yq git pkg-config libtool automake libncurses5-dev python-dev
+
+
+# # # ZeroMQ 
 
 RUN curl -L https://github.com/zeromq/zeromq4-x/archive/v4.0.3.tar.gz > v4.0.3.tar.gz && \
     tar xvfz v4.0.3.tar.gz && \
@@ -25,14 +29,13 @@ RUN curl -L https://github.com/zeromq/zeromq4-x/archive/v4.0.3.tar.gz > v4.0.3.t
     sudo ldconfig
 
 
-RUN git clone https://github.com/gibiansky/IHaskell
+# # # IHaskell
 
-RUN cd IHaskell && ./build.sh all
+# # clone & install IHaskell from git repo
+# RUN git clone https://github.com/gibiansky/IHaskell && cd IHaskell && ./build.sh all
 
-# Alternative, install everything directly from hackage without using a repo
-# RUN cabal install ipython-kernel ihaskell-aeson ihaskell-blaze gtk2hs-buildtools ihaskell-diagrams ihaskell-display ihaskell-magic
-
-ENV PATH /home/haskell/.cabal/bin:$PATH
+# # Alternative, install everything directly from hackage without using a repo
+RUN cabal install ipython-kernel ihaskell-aeson ihaskell-blaze gtk2hs-buildtools ihaskell-diagrams ihaskell-display ihaskell-magic
 
 
 
